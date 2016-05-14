@@ -36,7 +36,6 @@ public class ExerciseOne {
 
             }else
                 intactStr = intactStr.concat(str.substring(0, quantity) + " ");
-
             str = str.substring(quantity +1);
 
         }
