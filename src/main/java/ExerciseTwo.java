@@ -17,8 +17,8 @@ public class ExerciseTwo {
 
         try(FileWriter writer = new FileWriter(file)) {
             for (int i = 0; i < 100; i++){
-                int b = (int) (Math.random() * 10);
-                writer.write(Integer.toString(b));
+                int b = (int) (Math.random() * 100);
+                writer.write(Integer.toString(b) + " ");
             }
 
             writer.flush();
