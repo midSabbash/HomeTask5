@@ -3,8 +3,8 @@ import java.io.*;
 public class ExerciseOne {
     public static void main(String[] args) throws IOException {
 
-        String file1 = reader("test.txt");
-        String out = upperCase(file1);
+        String file = reader("exerciseOne.txt");
+        String out = upperCase(file);
         System.out.println(out);
     }
 
