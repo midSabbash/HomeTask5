@@ -1,15 +1,18 @@
 import java.beans.Statement;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class ExerciseTwo {
     public static void main(String[] args) throws IOException {
         File file = new File("exerciseTwo.txt");
 
         writer(file);
-        String out = reader(file);
+        String out = reader();
         System.out.println(out);
+        token();
 
     }
 
@@ -29,8 +32,8 @@ public class ExerciseTwo {
         }
     }
 
-    private static String reader(File file) throws IOException {
-
+    private static String reader() throws IOException {
+        File file = new File("exerciseTwo.txt");
         FileReader reader = new FileReader(file);
         String str = "";
         int symbol;
@@ -40,11 +43,19 @@ public class ExerciseTwo {
         return str;
     }
 
-    public List<Integer> list () {
-        List list = new ArrayList<>();
-        return list;
+    private static void token() throws IOException {
+        String s = reader();
+        StringTokenizer st;
+        st = new StringTokenizer(s," ");
+        List<Integer> numbers = new ArrayList<>();
+        while(st.hasMoreTokens()){
+            numbers.add(Integer.parseInt(st.nextToken()));
+            Collections.sort(numbers);
+        }
+        System.out.println(numbers);
     }
 }
+
 
 
 
