@@ -11,7 +11,6 @@ public class ExerciseTwo {
         String out = reader(file);
         System.out.println(out);
 
-
     }
 
     private static void writer (File file) throws IOException {
@@ -39,7 +38,6 @@ public class ExerciseTwo {
             str += (char) symbol;
         }
         return str;
-
     }
 
     public List<Integer> list () {
