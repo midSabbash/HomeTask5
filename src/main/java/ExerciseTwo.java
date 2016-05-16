@@ -1,29 +1,26 @@
-import java.beans.Statement;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ExerciseTwo {
     public static void main(String[] args) throws IOException {
         File file = new File("exerciseTwo.txt");
 
         writer(file);
-        String out = reader();
-        System.out.println(out);
+        reader();
         token();
-
     }
 
     private static void writer (File file) throws IOException {
-
         try(FileWriter writer = new FileWriter(file)) {
             for (int i = 0; i < 100; i++){
                 int b = (int) (Math.random() * 100);
                 writer.write(Integer.toString(b) + " ");
             }
-
             writer.flush();
             writer.close();
         }
@@ -50,12 +47,29 @@ public class ExerciseTwo {
         List<Integer> numbers = new ArrayList<>();
         while(st.hasMoreTokens()){
             numbers.add(Integer.parseInt(st.nextToken()));
-            Collections.sort(numbers);
         }
+        Collections.sort(numbers);
         System.out.println(numbers);
+
+        Writer writer = null;
+        try {
+            writer = new FileWriter("file.txt");
+            for (Integer number : numbers) {
+                writer.write(Integer.toString(number));
+                writer.write(System.getProperty("line.separator"));
+            }
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            Logger.getLogger(ExerciseTwo.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException ex) {
+                    ex.getMessage();
+                }
+            }
+        }
     }
 }
-
-
-
-
