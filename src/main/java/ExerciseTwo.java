@@ -53,7 +53,7 @@ public class ExerciseTwo {
 
         Writer writer = null;
         try {
-            writer = new FileWriter("file.txt");
+            writer = new FileWriter("Finished.txt");
             for (Integer number : numbers) {
                 writer.write(Integer.toString(number));
                 writer.write(System.getProperty("line.separator"));
