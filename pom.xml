@@ -18,6 +18,15 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <sourceDirectory>src/main/java</sourceDirectory>
+            <testSourceDirectory>src/test/java</testSourceDirectory>
+           <testResources>
+                <testResource>
+                    <directory>src/test/resources</directory>
+                </testResource>
+            </testResources>
+
     </build>
     <dependencies>
         <dependency>
@@ -27,6 +36,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
 
 
 </project>
