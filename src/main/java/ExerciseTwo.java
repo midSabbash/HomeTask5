@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ExerciseTwo {
     public static void main(String[] args) throws IOException {
@@ -61,15 +59,7 @@ public class ExerciseTwo {
             writer.flush();
             writer.close();
         } catch (Exception e) {
-            Logger.getLogger(ExerciseTwo.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (IOException ex) {
-                    ex.getMessage();
-                }
-            }
+            e.getMessage();
         }
     }
 }
