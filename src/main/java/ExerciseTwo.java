@@ -49,7 +49,7 @@ public class ExerciseTwo {
         Collections.sort(numbers);
         System.out.println(numbers);
 
-        Writer writer = null;
+        Writer writer;
         try {
             writer = new FileWriter("Finished.txt");
             for (Integer number : numbers) {
