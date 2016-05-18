@@ -19,7 +19,7 @@ public class ExerciseThree {
         if(!file.exists()) {
             file.createNewFile();
             try (FileWriter writer = new FileWriter(file)) {
-                writer.write("a bod 43,43 432     98 ,98");
+                writer.write("a bod 43.43 432    98 .98");
                 writer.flush();
                 writer.close();
             }

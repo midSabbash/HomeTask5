@@ -1,19 +1,23 @@
-import org.testng.annotations.Parameters;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
 
 public class ExerciseTwoTest {
 
+
     @Test
-    public void writerTest () {
+    public void writerTest () throws IOException {
 
     }
 
     @Test
-    public void readerTest () {
+    public void readerTest () throws IOException {
 
     }
 
-    public void tokenTest () {
+    public void tokenTest () throws IOException {
 
     }
 }

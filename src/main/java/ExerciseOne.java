@@ -1,44 +1,50 @@
 import java.io.*;
+import java.util.StringTokenizer;
 
 public class ExerciseOne {
-    public static void main(String[] args) throws IOException {
 
-        String file = reader("exerciseOne.txt");
-        String out = upperCase(file);
-        System.out.println(out);
+    private File file;
+    private String str;
+
+    public ExerciseOne(File file) {
+        this.file = file;
+        str = "";
     }
 
-    private static String reader(String file) throws IOException {
+    public static void main(String[] args) throws IOException {
+
+        ExerciseOne file = new ExerciseOne (new File("exerciseOne.txt"));
+
+        file.reader();
+        file.upperCase();
+        System.out.println(file.str);
+
+
+    }
+
+    public void reader() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-        String str = "";
         int symbol;
         while((symbol = bufferedReader.read()) != -1) {
             str += (char) symbol;
         }
-
+        bufferedReader.close();
         str=str.trim();
-        str=str.concat(",");
-        str=str.replace(' ', ',');
-        str=str.replace(':',',');
-        return str;
     }
 
-    private static String upperCase(String str) {
-        String intactStr = "", strUp;
-        int quantity;
-        while (str.length() > 0) {
-            quantity = str.indexOf(',');
+    public void upperCase() {
+        StringTokenizer token = new StringTokenizer(str);
+        StringBuilder builder = new StringBuilder();
 
-            if(quantity > 2){
-                strUp = str.substring(0, quantity);
-                strUp = strUp.toUpperCase();
-                intactStr = intactStr.concat(strUp + " ");
+        while(token.hasMoreTokens()){
+            String word = token.nextToken();
 
-            }else
-                intactStr = intactStr.concat(str.substring(0, quantity) + " ");
-            str = str.substring(quantity +1);
-
+            if(word.length() > 2){
+                builder.append(word.toUpperCase()).append(" ");
+            } else{
+                builder.append(word).append(" ");
+            }
         }
-        return intactStr;
+        str = builder.toString();
     }
 }

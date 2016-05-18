@@ -21,15 +21,17 @@ public class ExerciseFour {
         BufferedWriter writerUsers = new BufferedWriter(users);
 
         String mail = readMails.readLine();
-        System.out.println(mail);
         String group = readGroups.readLine();
-        System.out.println(group);
+
 
         while (mail != null && group != null) {
-            writerUsers.write(mail + ";" + group.split(";")[1] + "\n");
+            if (!mail.contains("#") && !group.contains("#")) {
+                writerUsers.write(mail + ";" + group.split(";")[1] + "\n");
+            }
             mail = readMails.readLine();
             group = readGroups.readLine();
         }
         writerUsers.flush();
+        writerUsers.close();
     }
 }
