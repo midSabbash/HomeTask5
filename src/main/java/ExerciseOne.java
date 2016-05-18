@@ -9,7 +9,7 @@ public class ExerciseOne {
     }
 
     private static String reader(String file) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("Finished.txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         String str = "";
         int symbol;
         while((symbol = bufferedReader.read()) != -1) {

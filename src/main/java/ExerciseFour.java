@@ -14,7 +14,7 @@ public class ExerciseFour {
         writeUsers.close();
     }
 
-    public static void filter (Reader mails, Reader groups, Writer users) throws IOException {
+    private static void filter(Reader mails, Reader groups, Writer users) throws IOException {
 
         BufferedReader readMails = new BufferedReader(mails);
         BufferedReader readGroups = new BufferedReader(groups);
@@ -26,11 +26,10 @@ public class ExerciseFour {
         System.out.println(group);
 
         while (mail != null && group != null) {
-            writerUsers.write(mail + ";" + group.split(";") + "\n");
+            writerUsers.write(mail + ";" + group.split(";")[1] + "\n");
             mail = readMails.readLine();
             group = readGroups.readLine();
         }
         writerUsers.flush();
     }
-
 }
