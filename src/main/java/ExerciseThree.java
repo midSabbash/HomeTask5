@@ -23,7 +23,6 @@ public class ExerciseThree {
                 writer.flush();
                 writer.close();
             }
-
         }
 
         String str,type;
@@ -66,6 +65,5 @@ public class ExerciseThree {
         } else if (type.equalsIgnoreCase("string")) {
             System.out.println(stringList);
         }
-
     }
 }
