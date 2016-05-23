@@ -1,28 +1,26 @@
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ExerciseOne {
+public class Exercise1 {
 
     private File file;
     private String str;
 
-    public ExerciseOne(File file) {
+    Exercise1(File file) {
         this.file = file;
         str = "";
     }
 
     public static void main(String[] args) throws IOException {
 
-        ExerciseOne file = new ExerciseOne (new File("exerciseOne.txt"));
+        Exercise1 file = new Exercise1(new File("exerciseOne.txt"));
 
         file.reader();
         file.upperCase();
         System.out.println(file.str);
-
-
     }
 
-    public void reader() throws IOException {
+    String reader() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         int symbol;
         while((symbol = bufferedReader.read()) != -1) {
@@ -30,9 +28,10 @@ public class ExerciseOne {
         }
         bufferedReader.close();
         str=str.trim();
+        return str;
     }
 
-    public void upperCase() {
+    String upperCase() {
         StringTokenizer token = new StringTokenizer(str);
         StringBuilder builder = new StringBuilder();
 
@@ -45,6 +44,7 @@ public class ExerciseOne {
                 builder.append(word).append(" ");
             }
         }
-        str = builder.toString();
+        str = builder.toString().trim();
+        return str;
     }
 }

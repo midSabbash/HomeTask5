@@ -5,27 +5,27 @@ import java.util.StringTokenizer;
 import java.io.File;
 
 
-public class ExerciseTwo {
+public class Exercise2 {
 
     private File file;
     private String str;
-    private ArrayList<Integer> numbers;
+    ArrayList<Integer> numbers;
 
-    public ExerciseTwo(File file) {
+    Exercise2(File file) {
         this.file = file;
         str = "";
         numbers = new ArrayList<>();
     }
 
     public static void main(String[] args) throws IOException {
-        ExerciseTwo file = new ExerciseTwo (new File("exerciseTwo.txt"));
+        Exercise2 file = new Exercise2(new File("exerciseTwo.txt"));
 
         file.writer();
         file.reader();
         file.writeSort();
     }
 
-    public void writer() throws IOException {
+    void writer() throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             for (int i = 0; i < 100; i++){
                 int b = (int) (Math.random() * 100 +1);
@@ -35,7 +35,7 @@ public class ExerciseTwo {
             writer.close();
     }
 
-    public void reader() throws IOException {
+    void reader() throws IOException {
 
         FileReader reader = new FileReader(file);
         int symbol;
@@ -48,7 +48,7 @@ public class ExerciseTwo {
         Collections.sort(numbers);
     }
 
-    public void writeSort() throws IOException {
+    void writeSort() throws IOException {
         Writer writer = new FileWriter(file);
         for (Integer number : numbers) writer.write(Integer.toString(number) + System.getProperty("line.separator"));
 
