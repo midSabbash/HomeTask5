@@ -11,7 +11,6 @@ public class Exercise2Test {
     @Test(alwaysRun = true)
     public void writerTest () throws IOException {
         file.writer();
-        Assert.assertTrue(true);
     }
 
     @Test
